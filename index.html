@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title> Tutoring Website </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="html, css, javascript, jquery">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="css/vendor/icomoon/style.css">
+    <link rel="stylesheet" href="css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/vendor/animate.min.css">
+    <link rel="stylesheet" href="css/vendor/aos.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor/jquery.fancybox.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+   $(document).ready(function() {
+      $('#contactForm').submit(function(e) {
+         e.preventDefault(); // Prevent the form from submitting traditionally
+
+         // Get form data
+         var formData = $(this).serialize();
+
+         // Submit form data using AJAX
+         $.ajax({
+            type: 'POST',
+            url: 'php/send-email.php', // Update the URL to your PHP script
+            data: formData,
+            success: function(response) {
+               // Handle success
+               $('#form-message-warning').hide();
+               $('#form-message-success').html(response).show();
+            },
+            error: function(xhr, status, error) {
+               // Handle errors
+               var errorMessage = xhr.responseText;
+               $('#form-message-success').hide();
+               $('#form-message-warning').html(errorMessage).show();
+            }
+         });
+      });
+   });
+</script>
+
+
+    
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .custom-logo {
+        margin-right: 20px; 
+        margin-left: 20px;/* Adjust the value as needed */
+      }
+    
+      @media (max-width: 991px) {
+        .custom-logo {
+          margin-right: 0; /* Reset margin for smaller screens */
+        }
+      }
+      .custom-table {
+        color: red;
+      }
+    
+      .join-zoom-box {
+        width: 150px; /* Adjust the width as needed */
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+    
+      .join-zoom-box:hover {
+        background-color: #f0f0f0;
+      }
+    
+      .join-zoom-box a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+      }
+      table.custom-table tr:hover {
+        cursor: pointer;
+        background-color: #f8f9fa; /* Change background color on hover */
+      }
+  
+      table.custom-table tr:hover td {
+        font-size: 1.2em; /* Increase font size on hover */
+        color: #007bff; /* Change text color on hover */
+      }
+
+    </style>
+    
+
+    
+
+  </head>
+  <body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+
+    <nav class="unslate_co--site-mobile-menu">
+      <div class="close-wrap d-flex">
+        <a href="#" class="d-flex ml-auto js-menu-toggle">
+          <span class="close-label">Close</span>
+          <div class="close-times">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+          </div>
+        </a>
+      </div>
+      <div class="site-mobile-inner"></div>
+    </nav>
+
+
+    <div class="unslate_co--site-wrap">
+
+      <div class="unslate_co--site-inner">
+
+        <div class="lines-wrap">
+          <div class="lines-inner">
+            <div class="lines"></div>
+          </div>
+        </div>
+        <!-- END lines -->
+      
+      <nav class="unslate_co--site-nav site-nav-target">
+
+        <div class="container">
+        
+          <div class="row align-items-center justify-content-between text-left">
+            <div class="col-md-5 text-right">
+              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+                <li class="has-children">
+                  <a href="#home-section" class="nav-link">Home</a>
+                  
+                </li>
+                <li><a href="#about-section" class="nav-link">About ME</a></li>
+              </ul>
+            </div>
+            <div class="site-logo pos-absolute">
+              <a href="index.html" class="unslate_co--site-logo custom-logo">Tutoring Website<span>.</span></a>
+            </div>
+            
+            <div class="col-md-5 text-right text-lg-left">
+              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+                <li><a href="#tutoring-schedule" class="nav-link">Tutoring Schedule</a></li>
+                <li><a href="#skills-section" class="nav-link">Skills</a></li>
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+              </ul>
+
+              <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
+                <li><a href="#" class="js-menu-toggle">Menu</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </nav>
+      <!-- END nav -->
+
+      <div class="cover-v1 jarallax" id="home-section">
+        <div class="container">
+          <div class="row align-items-center">
+              
+            <div class="col-md-7 mx-auto text-center">
+              <!--<h1 class="heading gsap-reveal-hero">Who is the Tutor?</h1> -->
+              <h2 class="subheading gsap-reveal-hero"style="font-family: 'Dancing Script', cursive, 'Montserrat', sans-serif; font-size: 35px;">Hey there, fellow Earthlings and Code Connoisseurs! 👨‍💻✨</h2>
+              <h4 class="subheading gsap-reveal-hero" style="font-family: 'Bebas Neue', 'Montserrat', sans-serif; font-size: 35px;">
+                I'm Mohammed Khan, the digital wizard turning caffeine into code, conducting the symphony of front end, back end, and full stack development.🚀💻
+              </h4>
+            </div>
+            
+            
+
+          </div>
+        </div>
+
+
+        <a href="#portfolio-section" class="mouse-wrap smoothscroll">
+          <span class="mouse">
+            <span class="scroll"></span>
+          </span>
+          <span class="mouse-label">Scroll</span>
+        </a>
+
+      </div>
+      <!-- END .cover-v1 -->
+
+
+      <div class="unslate_co--section" id="portfolio-section">
+        <div class="container">
+          
+          
+          <div class="relative"><div class="loader-portfolio-wrap"><div class="loader-portfolio"></div></div> </div>
+          <div id="portfolio-single-holder"></div>
+
+
+          <div class="unslate_co--section" id="about-section">
+            <div class="container">
+              
+              <div class="section-heading-wrap text-center mb-5">
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">About Me</span></h2>
+                <span class="gsap-reveal">
+                <img src="images/divider.png" alt="divider" width="76">
+                </span>
+              </div>
+              
+    
+              <div class="row mt-5 justify-content-between">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                  <figure class="dotted-bg gsap-reveal-img " style="max-width: 300px;">
+                    <img src="images/logo2.jpg" alt="Image" class="img-fluid">
+                  </figure>
+                </div>
+                <div class="col-lg-4 pr-lg-5 offset-lg-0">
+                  <h3 class="mb-4 heading-h3"><span class="gsap-reveal">Meet Your Web Development Tutor</span></h3>
+                  <p class="lead gsap-reveal">Hello, aspiring web developers! I'm your guide through the realms of HTML, CSS, JavaScript, PHP, and Python and its frameworks.</p>
+                  <p class="mb-4 gsap-reveal">With a passion for turning ideas into interactive and functional websites, I specialize in teaching the intricacies of web development. From crafting stylish layouts with CSS to implementing dynamic functionality with JavaScript and server-side magic with PHP and Python, we'll explore the world of web technologies together.</p>
+                  <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">My Portfolio Website</a></p>
+                  <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">GitHub</a></p>
+                  <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">LinkedIn</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="schedule-section" id="tutoring-schedule">
+        <div class="container">
+          <div class="section-heading-wrap text-center mb-5">
+            <h2 class="section-heading-h2 text-center"><span class="gsap-reveal">Tutoring Schedule</span></h2>
+            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+          </div>
+      
+          <div class="table-responsive">
+            <table class="table custom-table table-bordered table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Days</th>
+                  <th>Hours</th>
+                  <th>Join Session</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td>9:00 AM - 5:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="your_zoom_link_for_monday" class="btn btn-primary">Join Zoom</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>10:00 AM - 6:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="your_zoom_link_for_tuesday" class="btn btn-primary">Join Zoom</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>5:30 PM - 7:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="#" class="btn btn-primary" onclick="return false;"style="background-color: #FFA07A;">Only In-person Tutoring</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Thursday</td>
+                  <td>10:00 AM - 6:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="your_zoom_link_for_thursday" class="btn btn-primary">Join Zoom</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td>10:00 AM - 6:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="your_zoom_link_for_friday" class="btn btn-primary">Join Zoom</a>
+                  </td>
+                </tr>
+                <!-- Additional rows for Saturday and Sunday -->
+                <tr>
+                  <td>Saturday</td>
+                  <td>5:30 PM - 7:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="#" class="btn btn-primary" onclick="return false;" style="background-color: #FFA07A;">On Request Only</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>5:30 PM - 7:00 PM</td>
+                  <td class="join-session-box">
+                    <a href="#" class="btn btn-primary" onclick="return false;"style="background-color: #FFA07A;">On Request Only</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+          
+          
+
+
+
+
+       
+
+
+
+
+      
+
+      <div class="unslate_co--section section-counter" id="skills-section">
+        <div class="container">
+          <div class="section-heading-wrap text-center mb-5">
+            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Skills</span></h2>
+            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+          </div>
+
+
+          <div class="row pt-5">
+            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+              <div class="counter-v1 text-center">
+                <span class="number-wrap">
+                  <span class="number number-counter" data-number="90">0</span>
+                  <span class="append-text">%</span>
+                </span>
+                <span class="counter-label">JavaScript</span>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="counter-v1 text-center">
+                <span class="number-wrap">
+                  <span class="number number-counter" data-number="99">0</span>
+                  <span class="append-text">%</span>
+                </span>
+                <span class="counter-label">HTML/CSS</span>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="counter-v1 text-center">
+                <span class="number-wrap">
+                  <span class="number number-counter" data-number="95">0</span>
+                  <span class="append-text">%</span>
+                </span>
+                <span class="counter-label">PHP</span>
+              </div>
+            </div>
+            <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="counter-v1 text-center">
+                <span class="number-wrap">
+                  <span class="number number-counter" data-number="100">0</span>
+                  <span class="append-text">%</span>
+                </span>
+                <span class="counter-label">Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END .counter -->
+
+      
+
+    
+
+      <div class="unslate_co--section" id="contact-section">
+        <div class="container">
+          <div class="section-heading-wrap text-center mb-5">
+            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Get In Touch</span></h2>
+            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+              <p class="gsap-reveal lead" style="color: #FFA07A;">
+                Feel free to reach out to me directly via <b style="color: rgb(243, 47, 25);">email</b> which is given below,
+                or use the <b style="color: rgb(233, 63, 44);">form</b> below to send me a message. I look forward to hearing from you whenever you have questions!
+              </p>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-between">
+            <div class="col-md-6">
+                <form method="post" action="php/send-email.php" class="form-outline-style-v1" id="contactForm">
+                    <div class="form-group row mb-0">
+                        <div class="col-lg-6 form-group gsap-reveal">
+                            <label for="name">Name</label>
+                            <input name="name" type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="col-lg-6 form-group gsap-reveal">
+                            <label for="email">Email</label>
+                            <input name="email" type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="col-lg-12 form-group gsap-reveal">
+                            <label for="subject">Subject</label>
+                            <textarea name="subject" id="subject" cols="3" rows="3" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-lg-12 form-group gsap-reveal">
+                            <label for="message">Write your message...</label>
+                            <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row gsap-reveal">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <input type="submit" class="btn btn-outline-pill btn-custom-light mr-3" value="Send Message">
+                            <span class="submitting"></span>
+                        </div>
+                    </div>
+                </form>
+                <div id="form-message-warning" class="mt-4"></div> 
+                <div id="form-message-success" style="display: none;">Your message was sent, thank you!</div>
+            </div>
+        </div>
+        
+            <div class="col-md-4">
+              <div class="contact-info-v1">
+                <div class="gsap-reveal d-block">
+                  <span class="d-block contact-info-label">Email</span>
+                  <a href="#" class="contact-info-val">info@yourdomain.com</a>
+                </div>
+                <div class="gsap-reveal d-block">
+                  <span class="d-block contact-info-label">Phone</span>
+                  <a href="#" class="contact-info-val">+12 345 6789 012</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div> <!-- END .unslate_co-site-inner -->
+
+      <footer class="unslate_co--footer unslate_co--section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              
+              <div class="footer-site-logo"><a href="#">Tutoring Website<span>.</span></a></div>
+
+              <p class="site-copyright">
+                
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy Mohammed Khan;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+              
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      
+    </div>
+
+    
+    <!-- Loader -->
+    <div id="unslate_co--overlayer"></div>
+    <div class="site-loader-wrap">
+      <div class="site-loader"></div>
+    </div>
+
+    <script src="js/scripts-dist.js"></script>
+    <script src="js/main.js"></script>
+   <script>
+  // Add JavaScript for hover effect
+  document.addEventListener('DOMContentLoaded', function () {
+    const tableRows = document.querySelectorAll('.custom-table tbody tr');
+
+    tableRows.forEach(row => {
+      row.addEventListener('mouseover', function () {
+        this.style.backgroundColor = '#f8f9fa'; /* Change background color on hover */
+      });
+
+      row.addEventListener('mouseout', function () {
+        this.style.backgroundColor = ''; /* Reset background color on mouseout */
+      });
+    });
+  });
+</script>
+
+  </body>
+</html>

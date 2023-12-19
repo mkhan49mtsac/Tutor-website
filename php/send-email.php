@@ -2,8 +2,15 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Add debugging line
+// Add debugging lines
 error_log('Received POST request: ' . print_r($_POST, true));
+error_log('Received FILES: ' . print_r($_FILES, true));
+
+// Set maximum file upload size to 2 GB
+ini_set('upload_max_filesize', '2048M');
+// Set maximum POST size to 2 GB
+ini_set('post_max_size', '2048M');
+
 
 require 'C:/Users/mkhan/Desktop/tutor website/php/Exception.php';
 require 'C:/Users/mkhan/Desktop/tutor website/php/PHPMailer.php';
@@ -36,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Password   = $config['smtpPassword'];
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
-        $mail->setFrom($config['smtpUsername'], 'Your Full Name');
+        $mail->setFrom($config['smtpUsername'], 'Mohammed Khan');
         $mail->addAddress($config['to']);
         $mail->isHTML(false);
         $mail->Subject = "New Contact Form Submission";
@@ -56,11 +63,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mailUser->Password   = $config['smtpPassword'];
         $mailUser->SMTPSecure = 'tls';
         $mailUser->Port       = 587;
-        $mailUser->setFrom($config['smtpUsername'], 'Your Full Name');
+        $mailUser->setFrom($config['smtpUsername'], 'Mohammed Khan');
         $mailUser->addAddress($email);
         $mailUser->isHTML(false);
         $mailUser->Subject = "Thank you for your message";
         $mailUser->Body    = $userMessage;
+
+        // Attach uploaded files
+        if (!empty($_FILES['attachments']['name'][0])) {
+            foreach ($_FILES['attachments']['tmp_name'] as $key => $tmp_name) {
+                $file_name = $_FILES['attachments']['name'][$key];
+                $file_size = $_FILES['attachments']['size'][$key];
+                $file_tmp = $_FILES['attachments']['tmp_name'][$key];
+                $file_type = $_FILES['attachments']['type'][$key];
+        
+                // Add debugging lines
+                error_log('File Details: ' . $file_name . ', ' . $file_size . ', ' . $file_type);
+        
+                if ($_FILES['attachments']['error'][$key] !== UPLOAD_ERR_OK) {
+                    error_log('File upload error: ' . $_FILES['attachments']['error'][$key]);
+                }
+        
+                if (!$mailUser->addAttachment($file_tmp, $file_name)) {
+                    error_log('Error adding attachment: ' . $mailUser->ErrorInfo);
+                }
+            }
+        }
+        
 
         if (!$mailUser->send()) {
             error_log('Error sending user confirmation email: ' . $mailUser->ErrorInfo);

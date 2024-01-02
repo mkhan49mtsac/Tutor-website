@@ -46,9 +46,9 @@ coverage/
 #.gitignore
 
 # PHPMailer configuration
-path/to/PHPMailer/src/PHPMailer.php
-path/to/PHPMailer/src/Exception.php
-path/to/PHPMailer/src/SMTP.php
+php/PHPMailer.php
+php/Exception.php
+php/SMTP.php
 
 # Composer files (assuming you used Composer to install PHPMailer)
 composer.json

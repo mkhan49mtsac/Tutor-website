@@ -29,9 +29,9 @@ coverage/
 #/vendor
 
 # Ignore built and compiled files
-/build/
-/dist/
-*.min.js
+#/build/
+#/dist/
+#*.min.js
 
 # Ignore PHP sessions, logs, and errors
 /var/

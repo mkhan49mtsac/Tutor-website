@@ -12,9 +12,9 @@ ini_set('upload_max_filesize', '2048M');
 ini_set('post_max_size', '2048M');
 
 
-require 'C:/Users/mkhan/Desktop/tutor website/php/Exception.php';
-require 'C:/Users/mkhan/Desktop/tutor website/php/PHPMailer.php';
-require 'C:/Users/mkhan/Desktop/tutor website/php/SMTP.php';
+require 'Exception.php';
+require 'PHPMailer.php';
+require 'SMTP.php';
 require 'config.php'; // Include the configuration file
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

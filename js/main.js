@@ -560,7 +560,7 @@ var contactForm = function() {
 
 				$.ajax({   	
 			      type: "POST",
-			      url: "php/send-email.php",
+			      url: "http://ec2-52-66-236-236.ap-south-1.compute.amazonaws.com:5000/send-email.php",
 			      data: $(form).serialize(),
 
 			      beforeSend: function() { 
